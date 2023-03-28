@@ -11,7 +11,7 @@ git submodule init
 git submodule update
 ```
 
-## Running iDig Server with Docker
+## Running iDig server with Docker
 
 ### Docker installation
 
