@@ -6,7 +6,10 @@ Docker configuration for the iDig application.
 
 You need to add the server files from the [iDig repository](https://github.com/ascsadl/idig-server) as a submodule.
 
-`git submodule update`
+```
+git submodule init
+git submodule update
+```
 
 ## Running iDig Server with Docker
 
