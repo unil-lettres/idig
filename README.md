@@ -1,4 +1,4 @@
-# idig
+# iDig
 
 Docker configuration for the iDig application.
 
