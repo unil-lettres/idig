@@ -41,7 +41,7 @@ idig-server adduser data/Agora bruce myPassw0rd
 
 To update the server with the latest code changes, you should first pull the latest changes from the [iDig repository](https://github.com/ascsadl/idig-server).
 
-`git submodule foreach git pull origin main`
+`git submodule update --remote idig-server`
 
 Then, you can use the following commands to update the server (projects data will be persisted through the `server-data` folder).
 
