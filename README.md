@@ -19,7 +19,7 @@ A working [Docker](https://docs.docker.com/engine/install/) installation is mand
 
 ### Installation & configuration
 
-To start iDig server with Docker, you need to use the `docker-compose up` command from the project root directory (add `-d` if you want to run in the background and silence the logs). This command will automatically build the docker image, and start the iDig server, the root directory will be mapped to the `server-data` folder.
+To start iDig server with Docker, you need to use the `docker-compose up` command from the project root directory (add `-d` if you want to run in the background and silence the logs). This command will automatically download or build the latest docker image, and start the iDig server, the root directory will be mapped to the `server-data` folder.
 
 Once the server is running, you can access it at `http://localhost:9000`.
 
