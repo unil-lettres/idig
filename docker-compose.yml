@@ -11,7 +11,7 @@ services:
     image: idig-server:latest
     build:
       context: ./
-      dockerfile: dockerfile-server
+      dockerfile: server.dockerfile
     volumes:
       - ./server-data:/server/data
     ports:
