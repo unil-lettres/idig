@@ -15,7 +15,7 @@ services:
     volumes:
       - ./server-data:/server/data
     ports:
-      - "9000:9000"
+      - "127.0.0.1:9000:9000"
     networks:
       - idig-net
     container_name: idig-server
