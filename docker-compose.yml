@@ -8,7 +8,7 @@ name: idig-server
 
 services:
   idig-server:
-    image: idig-server:latest
+    image: unillett/idig:latest-server
     build:
       context: ./
       dockerfile: server.dockerfile
