@@ -1,5 +1,5 @@
-.DS_Store
-.idea
-
 # iDig server data
 server-data
+
+# IDE stuff
+.idea
