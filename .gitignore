@@ -3,3 +3,6 @@ server-data
 
 # IDE stuff
 .idea
+
+# Ignore configuration files
+docker-compose.override.yml

@@ -1,4 +1,4 @@
-version: '3'
+version: '3.9'
 
 networks:
   idig-net:
@@ -19,4 +19,3 @@ services:
     networks:
       - idig-net
     container_name: idig-server
-    restart: always
