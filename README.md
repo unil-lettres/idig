@@ -1,6 +1,6 @@
-# iDig
+# Introduction
 
-Docker configuration for the iDig application.
+Docker configuration for the iDig server.
 
 # Development with Docker
 
