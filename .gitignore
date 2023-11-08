@@ -6,3 +6,6 @@ server-data
 
 # Ignore configuration files
 docker-compose.override.yml
+
+# Other
+.DS_Store
