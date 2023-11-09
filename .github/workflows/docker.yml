@@ -39,6 +39,8 @@ jobs:
           platforms: linux/amd64,linux/arm64
           push: true
           tags: unillett/idig:latest-server
+          cache-from: type=registry,ref=unillett/idig:latest
+          cache-to: type=inline
 
       - name: Update description
         uses: peter-evans/dockerhub-description@v3
