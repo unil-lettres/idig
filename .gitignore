@@ -8,4 +8,5 @@ server-data
 docker-compose.override.yml
 
 # Other
+.env
 .DS_Store
