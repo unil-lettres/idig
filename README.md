@@ -8,6 +8,14 @@ Docker configuration for the iDig server.
 
 A working [Docker](https://docs.docker.com/engine/install/) installation is mandatory.
 
+## Docker environment file
+
+Please make sure to copy & rename the **example.env** file to **.env**.
+
+``cp example.env .env``
+
+You can replace the values if needed, but the default ones should work.
+
 ## Starting the server
 
 To start iDig server with Docker, you need to use the `docker-compose up` command from the project root directory (add `-d` if you want to run in the background and silence the logs). This command will automatically download the latest docker image, and start the iDig server, the root directory will be mapped to the `server-data` folder.
@@ -40,7 +48,7 @@ git submodule init
 git submodule update
 ```
 
-To update the server with the latest code changes, you should first pull the latest changes from the [iDig repository](https://github.com/ascsadl/idig-server).
+To update the server with the latest code changes, you should first pull the latest changes from the [iDig repository](https://github.com/iDig-Recording-Archaeology/idig-server).
 
 `git submodule update --remote idig-server`
 

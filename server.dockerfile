@@ -20,4 +20,4 @@ RUN go build -o /usr/local/go/bin/idig-server
 RUN mkdir ./data
 
 # Start the server (listening on port 9000 by default)
-CMD ["idig-server", "start", "-r", "./data"]
+CMD ["idig-server", "start"]
