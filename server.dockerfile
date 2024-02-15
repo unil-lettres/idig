@@ -1,4 +1,4 @@
-FROM golang:1.20-bullseye
+FROM golang:1.21-bullseye
 
 # Set the working directory
 WORKDIR /server
