@@ -9,4 +9,4 @@ services:
       mode: global
       resources:
         limits:
-          memory: 500M
+          memory: 1000M
