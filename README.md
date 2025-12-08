@@ -18,7 +18,7 @@ You can replace the values if needed, but the default ones should work.
 
 ## Starting the server
 
-To start iDig server with Docker, you need to use the `docker-compose up` command from the project root directory (add `-d` if you want to run in the background and silence the logs). This command will automatically download the latest docker image, and start the iDig server, the root directory will be mapped to the `server-data` folder.
+To start iDig server with Docker, you need to use the `docker compose up` command from the project root directory (add `-d` if you want to run in the background and silence the logs). This command will automatically download the latest docker image, and start the iDig server, the root directory will be mapped to the `server-data` folder.
 
 Once the server is running, you can access it at `http://localhost:9000`.
 
@@ -55,9 +55,9 @@ To update the server with the latest code changes, you should first pull the lat
 Then, you can use the following commands to update the server (projects data will be persisted through the `server-data` folder).
 
 ```
-docker-compose down
-docker-compose build
-docker-compose up -d
+docker compose down
+docker compose build
+docker compose up -d
 ```
 
 Test the server, then commit and push the changes. The updated image will be automatically created on [Docker Hub](https://hub.docker.com/repository/docker/unillett/idig/general).
@@ -72,6 +72,6 @@ You can replace the values if needed, but the default ones should work for produ
 
 Build & run all the containers for this project:
 
-`docker-compose up -d`
+`docker compose up -d`
 
 Use a reverse proxy configuration to map the url to port `9000`.
