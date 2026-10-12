@@ -6,7 +6,6 @@ services:
   idig-server:
     restart: unless-stopped
     deploy:
-      mode: global
       resources:
         limits:
           memory: 1000M
