@@ -4,6 +4,7 @@
 
 services:
   idig-server:
+    image: unillett/idig:latest
     restart: unless-stopped
     deploy:
       resources:

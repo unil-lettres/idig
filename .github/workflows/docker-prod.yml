@@ -1,0 +1,74 @@
+name: docker-prod
+on:
+  push:
+    branches:
+      - "master"
+    tags:
+      - "*"
+permissions: read-all
+
+jobs:
+  build:
+    name: Build app (${{ matrix.arch }})
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        include:
+          - { arch: linux/amd64, os: ubuntu-latest }
+          - { arch: linux/arm64, os: ubuntu-26.04-arm }
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+        with:
+          ref: master
+
+      - name: Initialize idig-server submodule
+        run: git submodule update --init --recursive
+
+      - name: Build image
+        uses: unil-lettres/actions/docker-build@main
+        with:
+          dockerfile: ./server.dockerfile
+          platform: ${{ matrix.arch }}
+          image_repository: ${{ vars.DOCKERHUB_REPOSITORY }}
+          name_prefix: server
+          dockerhub_username: ${{ secrets.DOCKERHUB_USERNAME }}
+          dockerhub_token: ${{ secrets.DOCKERHUB_TOKEN }}
+
+  merge:
+    name: Merge
+    runs-on: ubuntu-latest
+    needs: [build]
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+        with:
+          ref: master
+
+      - name: Merge service
+        id: merge
+        uses: unil-lettres/actions/docker-merge-prod@main
+        with:
+          image_repository: ${{ vars.DOCKERHUB_REPOSITORY }}
+          dockerhub_username: ${{ secrets.DOCKERHUB_USERNAME }}
+          dockerhub_token: ${{ secrets.DOCKERHUB_TOKEN }}
+
+  update-description:
+    name: Update Description
+    runs-on: ubuntu-latest
+    needs: [merge]
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+        with:
+          ref: master
+
+      - name: Update description
+        uses: peter-evans/dockerhub-description@v5
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+          repository: ${{ vars.DOCKERHUB_REPOSITORY }}

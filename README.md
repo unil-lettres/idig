@@ -14,7 +14,13 @@ Please make sure to copy & rename the **example.env** file to **.env**.
 
 ``cp example.env .env``
 
-You can replace the values if needed, but the default ones should work.
+You can replace the values if needed, but the default ones should work for local development.
+
+Make sure to copy & rename the **docker-compose.override.yml.dev** file to **docker-compose.override.yml**.
+
+``cp docker-compose.override.yml.dev docker-compose.override.yml``
+
+You can replace the values if needed, but the default ones should work for local development.
 
 ## Starting the server
 
@@ -64,6 +70,12 @@ Test the server, then commit and push the changes. The updated image will be aut
 
 # Deployment with Docker
 
+Please make sure to copy & rename the **example.env** file to **.env**.
+
+``cp example.env .env``
+
+You can replace the values if needed, but the default ones should work for production.
+
 Copy & rename the **docker-compose.override.yml.prod** file to **docker-compose.override.yml**.
 
 `cp docker-compose.override.yml.prod docker-compose.override.yml`
@@ -75,3 +87,10 @@ Build & run all the containers for this project:
 `docker compose up -d`
 
 Use a reverse proxy configuration to map the url to port `9000`.
+
+# Docker images
+
+GitHub Actions workflows generate Docker image tags based on these events:
+- Push to `development`: `dev-latest`, `stage-latest`
+- Push to `main`: `latest`
+- Push a git tag: `vX.Y.Z` (immutable)
