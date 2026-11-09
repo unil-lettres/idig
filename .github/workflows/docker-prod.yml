@@ -21,7 +21,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v7
         with:
-          ref: master
+          ref: ${{ github.sha }}
 
       - name: Initialize idig-server submodule
         run: git submodule update --init --recursive
@@ -45,7 +45,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v7
         with:
-          ref: master
+          ref: ${{ github.sha }}
 
       - name: Merge service
         id: merge
@@ -64,7 +64,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v7
         with:
-          ref: master
+          ref: ${{ github.sha }}
 
       - name: Update description
         uses: peter-evans/dockerhub-description@v5
